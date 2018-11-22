@@ -1,5 +1,5 @@
 import TransactionWrapper from './wrapper/transaction';
-import { noConnectionError } from '../helpers';
+import { noConnectionError, isTooLongDataToEncryptProblem } from '../helpers';
 import lodash from 'lodash';
 
 class WalletHandler {
@@ -79,9 +79,24 @@ class WalletHandler {
                 pubkey
             };
 
+            const shortWalletDataToStore = {
+                address,
+                privkey
+            };
+
             this.walletStore.storeWalletData(walletDataToStore)
-                .then(() => resolve({ address, pubkey }))
-                .catch((error) => reject(noConnectionError(error)));
+                .then(() => resolve({ address }))
+                .catch((error) => {
+                  if(isTooLongDataToEncryptProblem(error)) {
+                    this.walletStore.storeWalletData(shortWalletDataToStore)
+                    .then(() => resolve({ address }))
+                    .catch((error) => {
+                      reject(noConnectionError(error))
+                    })
+                  } else {
+                    reject(noConnectionError(error))
+                  }
+                });
         });
     }
 

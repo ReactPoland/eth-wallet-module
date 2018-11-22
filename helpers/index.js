@@ -10,3 +10,11 @@ export const noConnectionError = (error) => {
     const networkProblemError = new Error('No connection to the network');
     return isNetworkProblem ? networkProblemError : error;
 };
+
+export const isTooLongDataToEncryptProblem = (error) => {
+    const errorMsg = fetchErrorMessage(error);
+    const problemsFilter = 'input must be under 256 bytes';
+    const isProblem = errorMsg.toLowerCase().indexOf(problemsFilter) !== -1;
+
+    return isProblem
+};
