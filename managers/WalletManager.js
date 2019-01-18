@@ -1,7 +1,7 @@
 import ethUtil from 'ethereumjs-util';
 import EthTrx from 'ethereumjs-tx';
 import { soliditySHA3 } from 'ethereumjs-abi';
-import Account from 'eth-lib/lib/account';
+import Account from './eth-lib/lib/account';
 import {
     GenerateMnemonic,
     GenerateWalletData,

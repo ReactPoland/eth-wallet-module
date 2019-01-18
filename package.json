@@ -10,14 +10,23 @@
     "bip39": "2.5.0",
     "bitcoinjs-lib": "3.3.2",
     "bitcore-ecies": "git+https://git@github.com/Experty/bitcore-ecies.git",
-    "eth-lib": "git+https://github.com/Experty/eth-lib.git",
     "ethereumjs-abi": "0.6.5",
     "ethereumjs-tx": "1.3.4",
     "ethereumjs-util": "5.1.5",
     "ethereumjs-wallet": "0.6.0",
     "lodash": "4.17.5",
     "react-native-bitcoinjs-lib": "git+https://git@github.com/Experty/react-native-bitcoinjs-lib.git",
-    "web3": "0.19.1"
+    "web3": "0.19.1",
+    "bn.js": "^4.11.6",
+    "elliptic": "^6.4.0",
+    "xhr-request-promise": "^0.1.2"
+  },
+  "devdependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "ethjs-account": "^0.1.1",
+    "ethjs-signer": "^0.1.1",
+    "rlp": "^2.0.0"
   },
   "repository": {
     "type": "git",
