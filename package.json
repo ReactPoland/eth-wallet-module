@@ -10,7 +10,7 @@
     "bip39": "2.5.0",
     "bitcoinjs-lib": "3.3.2",
     "bitcore-ecies": "git+https://git@github.com/Experty/bitcore-ecies.git",
-    "eth-lib": "git+https://github.com/imflavio/eth-lib.git#8b153d6d3464021c190abcaacdd2d3199f40d48b",
+    "eth-lib": "git+https://github.com/Experty/eth-lib.git",
     "ethereumjs-abi": "0.6.5",
     "ethereumjs-tx": "1.3.4",
     "ethereumjs-util": "5.1.5",
