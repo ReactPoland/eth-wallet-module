@@ -1,4 +1,4 @@
-import ethUtil from 'ethereumjs-util';
+import { addHexPrefix } from 'ethereumjs-util';
 import EthTrx from 'ethereumjs-tx';
 import { soliditySHA3 } from 'ethereumjs-abi';
 import Account from './eth-lib/lib/account';
@@ -150,7 +150,7 @@ class WalletManager {
             errorCallback(new Error('sendRawTransaction: serializedTx object is null - transaction not send'));
             return;
         }
-        const reformatedTx = ethUtil.addHexPrefix(serializedTx.toString('hex'));
+        const reformatedTx = addHexPrefix(serializedTx.toString('hex'));
         DEBUG && console.info('reformatedTx', reformatedTx);
         this.web3Provider.eth.sendRawTransaction(reformatedTx, (error, hash) => {
             if (!error) {
@@ -170,7 +170,7 @@ class WalletManager {
         }
 
         try {
-            const reformatedTx = ethUtil.addHexPrefix(serializedTx.toString('hex'));
+            const reformatedTx = addHexPrefix(serializedTx.toString('hex'));
             callback(reformatedTx);
         } catch (error) {
             errorCallback(error);
@@ -265,8 +265,8 @@ class WalletManager {
 
     createSignMessage = (privateKey, types, values) => {
         let messageHash = soliditySHA3(types, values).toString('hex');
-        privateKey = ethUtil.addHexPrefix(privateKey);
-        messageHash = ethUtil.addHexPrefix(messageHash);
+        privateKey = addHexPrefix(privateKey);
+        messageHash = addHexPrefix(messageHash);
         const signature = Account.sign(messageHash, privateKey);
         const vrs = Account.decodeSignature(signature);
 
@@ -284,8 +284,8 @@ class WalletManager {
     }
 
     signToken = (token, privateKey) => {
-        privateKey = ethUtil.addHexPrefix(privateKey);
-        token = ethUtil.addHexPrefix(token);
+        privateKey = addHexPrefix(privateKey);
+        token = addHexPrefix(token);
         return Account.sign(token, privateKey);
     }
 

@@ -1,5 +1,5 @@
 import Bitcoin from './BitcoinExtend';
-import ethUtil from 'ethereumjs-util';
+import { privateToAddress, toChecksumAddress, addHexPrefix, privateToPublic, stripHexPrefix } from 'ethereumjs-util';
 import bip39 from 'bip39';
 import bitcore from 'bitcore-lib';
 import ECIES from 'bitcore-ecies';
@@ -95,11 +95,11 @@ const GetAddressData = (index, bip32ExtendedKey) => {
     const key = bip32ExtendedKey.derive(index);
     const privKeyBuffer = key.keyPair.d.toBuffer();
     const privkey = privKeyBuffer.toString('hex');
-    const addressBuffer = ethUtil.privateToAddress(privKeyBuffer);
+    const addressBuffer = privateToAddress(privKeyBuffer);
     const hexAddress = addressBuffer.toString('hex');
-    const checksumAddress = ethUtil.toChecksumAddress(hexAddress);
-    const address = ethUtil.addHexPrefix(checksumAddress);
-    const pubkey = ethUtil.privateToPublic(privKeyBuffer).toString('hex');
+    const checksumAddress = toChecksumAddress(hexAddress);
+    const address = addHexPrefix(checksumAddress);
+    const pubkey = privateToPublic(privKeyBuffer).toString('hex');
 
     return { index, indexText, address, pubkey, privkey };
 };
@@ -141,7 +141,7 @@ export const getWalletDataFromKeystore = (keystore, password) => {
     const addressData = {
         address: keystoreWallet.getAddressString(),
         pubkey: keystoreWallet.getPublicKeyString(),
-        privkey: ethUtil.stripHexPrefix(keystoreWallet.getPrivateKeyString())
+        privkey: stripHexPrefix(keystoreWallet.getPrivateKeyString())
     };
     return { addressData };
 };
