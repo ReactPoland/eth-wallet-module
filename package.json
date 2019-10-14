@@ -1,7 +1,7 @@
 {
   "name": "eth-wallet-module",
   "version": "1.5.8",
-  "description": "Ether wallet module with Experty specification wrapper",
+  "description": "Ether wallet module with ReactPoland specification wrapper",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,13 +9,13 @@
   "dependencies": {
     "bip39": "2.5.0",
     "bitcoinjs-lib": "3.3.2",
-    "bitcore-ecies": "git+https://git@github.com/Experty/bitcore-ecies.git",
+    "bitcore-ecies": "git+https://git@github.com/ReactPoland/bitcore-ecies.git",
     "ethereumjs-abi": "0.6.5",
     "ethereumjs-tx": "1.3.4",
     "ethereumjs-util": "6.1.0",
     "ethereumjs-wallet": "0.6.3",
     "lodash": "4.17.15",
-    "react-native-bitcoinjs-lib": "git+https://git@github.com/Experty/react-native-bitcoinjs-lib.git",
+    "react-native-bitcoinjs-lib": "git+https://git@github.com/ReactPoland/react-native-bitcoinjs-lib.git",
     "web3": "0.19.1",
     "bn.js": "^4.11.6",
     "elliptic": "^6.4.0",
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Experty/eth-wallet-module.git"
+    "url": "git+https://github.com/ReactPoland/eth-wallet-module.git"
   },
   "keywords": [
     "eth",
@@ -41,7 +41,7 @@
   "author": "Łukasz Kubica",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Experty/eth-wallet-module/issues"
+    "url": "https://github.com/ReactPoland/eth-wallet-module/issues"
   },
-  "homepage": "https://github.com/Experty/eth-wallet-module#readme"
+  "homepage": "https://github.com/ReactPoland/eth-wallet-module#readme"
 }
